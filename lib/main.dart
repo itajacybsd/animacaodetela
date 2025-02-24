@@ -27,6 +27,16 @@ class HomePage extends StatelessWidget {
               pageBuilder: (context, animation, secondaryAnimation) {
                 return SecondPage();
               },
+              transitionDuration: Duration(seconds: 2),
+              reverseTransitionDuration: Duration(seconds: 2),
+              transitionsBuilder: (
+                context,
+                animation,
+                secondaryAnimation,
+                child,
+              ) {
+                return FadeTransition(opacity: animation, child: child);
+              },
             );
 
             Navigator.push(context, route);
