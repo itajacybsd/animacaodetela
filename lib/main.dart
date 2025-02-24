@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             final route = PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
-                return SecondPage();
+                return SecondPage(animation: animation);
               },
               transitionDuration: Duration(seconds: 2),
               reverseTransitionDuration: Duration(seconds: 2),
@@ -50,13 +50,25 @@ class HomePage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+  final Animation<double> animation;
+  const SecondPage({super.key, required this.animation});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(title: const Text('Second Page')),
-      body: Container(),
+      body: AnimatedBuilder(
+        animation: animation,
+        builder: (context, child) {
+          return Center(
+            child: Transform.translate(
+              offset: Offset(0, 100 * animation.value),
+              child: Text('Fatores'),
+            ),
+          );
+        },
+      ),
     );
   }
 }
