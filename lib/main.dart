@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
             final route = MaterialPageRoute(builder: (_) => SecondPage());
             Navigator.push(context, route);
           },
-          child: Text('Ir para a Próxima Página'),
+          child: Text('Ir para a Próxima Página.'),
         ),
       ),
     );
