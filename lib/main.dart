@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(HomePage());
+  runApp(TransitionPage());
+}
+
+class TransitionPage extends StatelessWidget {
+  const TransitionPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: HomePage());
+  }
 }
 
 class HomePage extends StatelessWidget {
