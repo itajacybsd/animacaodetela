@@ -23,9 +23,15 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            final route = MaterialPageRoute(builder: (_) => SecondPage());
+            final route = PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return SecondPage();
+              },
+            );
+
             Navigator.push(context, route);
           },
+
           child: Text('Ir para a Próxima Página.'),
         ),
       ),
